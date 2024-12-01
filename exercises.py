@@ -15,7 +15,10 @@ class Game():
             move = self.get_move()
             self.board[move] = self.turn
             self.check_for_winner()
+            self.check_for_tie()
             self.switch_turn()
+        self.render()
+        
 
  
 
@@ -33,9 +36,9 @@ class Game():
     def print_message(self):
         if self.tie == True:
             print('tie game!')
-        elif self.tie == False: 
+        elif self.tie == False and self.winner== None: 
             print(f"it's player {self.turn}'s turn!")     
-        elif self.winner != None:
+        elif self.tie == False and self.winner != None:
             print(f'{self.winner} wins the game!')
            
 
